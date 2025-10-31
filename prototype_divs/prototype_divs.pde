@@ -23,4 +23,4 @@ float playY3 = imageY + imageHeight * 3/4;
 //
 rect(imageX, imageY, imageWidth, imageHeight);
 //
-triangle(playX1, playY1, playX2, playY2, playX3, playY3);
+triangle(playX1, playY1, playX2, playY2, playX3, playY3)
