@@ -10,4 +10,10 @@ int appHeight = displayHeight; //height
 println("Display VARS:", "appWidth:"+appWidth, "appHeight:"+appHeight, "\n\t\t\t\t\t\t\t\t\tFullScreen, displayWidth:"+displayWidth, "displayHeight:"+displayHeight, "\n\t\t\t\t\t\t\t\t\tSize\t\t, width:"+width, "height:"+height);
 //
 //Image Aspect Ratio Vars & Algorithm
-//Directory or Pathway
+//Directory or Pathway, concatentasion
+String upArrow = "../../../";
+String folder = "Images/";
+String Reminder = "Reminder";
+String fileExtenstionjpg = "jpg";
+String imagePathway1 = upArrow  + Reminder + fileExtenstionjpg;
+println("reminder Pathway:", imagePathway1);
