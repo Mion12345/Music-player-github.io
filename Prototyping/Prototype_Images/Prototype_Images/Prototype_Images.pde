@@ -1,5 +1,4 @@
-/* Aspect Ratio: Bike Only Demonstration
-- Old Man 
+/* Aspect Ratio: Reminder
 */
 //
 //Display
@@ -11,9 +10,9 @@ println("Display VARS:", "appWidth:"+appWidth, "appHeight:"+appHeight, "\n\t\t\t
 //
 //Population
 float image1X = appWidth * 0.5 / 20;
-  float image1Y = appHeight * 2.3 / 10;
-  float image1Width = appWidth * 4.7 / 20;
-  float image1Height = appHeight * 2.5 / 10;
+float image1Y = appHeight * 2.3 / 10;
+float image1Width = appWidth * 4.7 / 20;
+float image1Height = appHeight * 2.5 / 10;
 //
 //Image Aspect Ratio Vars & Algorithm
 //Directory or Pathway, concatentasion
@@ -22,14 +21,17 @@ String folder = "Images/";
 String Reminder = "Reminder";
 String fileExtenstionjpg = "jpg";
 String imagePathway1 = upArrow  + Reminder + fileExtenstionjpg;
-println("reminder Pathway:", imagePathway1);
+println("Reminder Pathway:", imagePathway1);
 //Image loading & aspect Ration
 PImage image1 = loadImage( imagePathway1 );
 int imageWidth1 = 1076; //Hardcore
 int imageHieght = 1920 //Hardcore
-//
+//Aspect Ratio
+float image1AspectRatio_GreaterOne = (imageWidth1 =< imageHeight1) ? imageHeight1/imageWidth : ; //Ternary Operator
+//Hardcore Greater-Than-One Aspect Ratio
 //
 //DIV
-rect(imageDivx, imageDivy, imageDivwidth, imageDivheight);
+rect( imageDivX, imageDivY, imageDivWidth, imageDivHeight );
 //
-//image( image, x, y, width, height );
+image( image1, imageDivX, imageDivY, imageWidthAdjusted, imageHeightAdjusted );
+//image( image1, imageDivX, imageDivY, imageWidthAdjusted, imageHeightAdjusted );
