@@ -1,60 +1,52 @@
-/* Aspect Ratio: Bike Only Demonstration
-- Old Man using arrays
-- introduction: set index manually
+/* Aspect Ratio: Quran Image Demonstration
+ - introduction: set index manually
 */
+
 //
-//Display
-//fullScreen(); //Landscape
+// Display
 size(500, 250); //Portrait, testing smaller DIVs ONLY
-int appWidth = width; //displayWidth
-int appHeight = height; //displayHeight
-//println("Display VARS:", "appWidth:"+appWidth, "appHeight:"+appHeight);
-//println("\t\t\t\tFullScreen, displayWidth:\t"+displayWidth, "\tdisplayHeight:\t"+displayHeight, "\n\t\t\t\tSize\t, width:\t\t"+width, "\theight:\t\t"+height);
+int appWidth = width;
+int appHeight = height;
+
 //
-//Population
-float image1X = appWidth * 0.5 / 20;
-float image1Y = appHeight * 2.3 / 10;
-float image1Width = appWidth * 4.7 / 20;
-float image1Height = appHeight * 2.5 / 10; //** Make smaller to test Landscape
+// Image 1 DIV — larger fractions so image is visible
+float image1X = appWidth * 0.1;       // 10% from left
+float image1Y = appHeight * 0.1;      // 10% from top
+float image1Width = appWidth * 0.8;   // 80% of width
+float image1Height = appHeight * 0.8; // 80% of height
+
+rect(image1X, image1Y, image1Width, image1Height);
+
 //
-//Image Aspect Ratio Vars & Algorithm
-//Directory or Pathway, Concatenation
+// Image Aspect Ratio Vars & Algorithm
 String upArrow = "../../../";
-String folder = "Images/"; 
+String folder = "Images/";
 String quran = "quran";
 String fileExtensionJPG = ".jpg";
 String imagePathway1 = upArrow + folder + quran + fileExtensionJPG;
-//println("quran Pathway:", imagePathway1);
-//Image Loading & Aspect Ratio
-PImage image1 = loadImage( imagePathway1 );
-int imageWidth1 = 340; //Hardcoded
-int imageHeight1 = 270; //Hardcoded
-//Aspect Ratio
-float image1AspectRatio_GreaterOne = ( imageWidth1 >= imageHeight1 ) ? float(imageWidth1)/float(imageHeight1) : float(imageHeight1)/float(imageWidth1) ; //Ternary Operator
-//ERROR, int populating float: truncating-adding zeros, casting
-/* Line Notes
-- Hardcoded Greater-Than-One Aspect Ratio, x or / >1 or <1
-- 2D information from Image, Apsect Ratio Number
-- Answers how to make image bigger or smaller
-- Computer calculated DIV width & height
-- Computer needs to compare image to DIV size difference
-*/
-//println("Testing for Decimals, formula unsing ints:", imageWidth1/imageHeight1);
-//println("After casting added, Aspect Ratio >1:", image1AspectRatio_GreaterOne);
-//Algorithm Decisions (choice)
-//float imageWidthAdjusted1 = imageDivWidth;
-//float imageHeightAdjusted1 = ( imageWidth1 >= imageDivWidth ) ? imageWidthAdjusted1 * image1AspectRatio_GreaterOne : imageWidthAdjusted1 / image1AspectRatio_GreaterOne ; //Ternary Operator
-//Verification: looks good
-//if ( imageHeightAdjusted1 > imageDivHeight ) {
-  println("Image doesn't fit, program ended ... Fatal Flaw, must be solved ... Image doesn't show.");
+
+PImage image1 = loadImage(imagePathway1);
+if (image1 == null) {
+  println("Image not found. Check pathway.");
   exit();
-  //
 }
+
+int imageWidth1 = image1.width;
+int imageHeight1 = image1.height;
+
+float image1AspectRatio_GreaterOne = float(imageWidth1) / float(imageHeight1);
+
+float scaleW = image1Width / imageWidth1;
+float scaleH = image1Height / imageHeight1;
+float finalScale = (scaleW < scaleH) ? scaleW : scaleH;
+
+float imageWidthAdjusted1 = imageWidth1 * finalScale;
+float imageHeightAdjusted1 = imageHeight1 * finalScale;
+
+float drawX = image1X + (image1Width - imageWidthAdjusted1) / 2;
+float drawY = image1Y + (image1Height - imageHeightAdjusted1) / 2;
+
+image(image1, drawX, drawY, imageWidthAdjusted1, imageHeightAdjusted1);
+
 //
-//DIV
-rect( imageDivX, imageDivY, imageDivWidth, imageDivHeight );
-//
-image( image1, imageDivX, imageDivY, imageDivWidth, imageDivHeight );
-image( image1, imageDivX, imageDivY, imageWidthAdjusted1, imageHeightAdjusted1 );
-//
-//End Program
+// End Program
