@@ -12,7 +12,7 @@ float divW = appWidth * 0.8;
 float divH = appHeight * 0.8;
 
 // Text
-String title = "Wahoo! My text resizes automatically.";
+String title = "Home.";
 
 // Font
 PFont myFont;
