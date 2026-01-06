@@ -17,3 +17,8 @@ import ddf.minim.effects.*;
 import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
+//
+//Global Varaiables
+Minim minim;
+int numberOfSong = 1;//
+int numberOfSoundEffects = 
