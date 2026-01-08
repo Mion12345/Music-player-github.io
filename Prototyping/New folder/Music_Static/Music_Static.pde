@@ -18,7 +18,32 @@ import ddf.minim.signals.*;
 import ddf.minim.spi.*;
 import ddf.minim.ugens.*;
 //
-//Global Varaiables
-Minim minim;
-int numberOfSong = 1;//
-int numberOfSoundEffects = 
+//Global Varaibles
+Minim minim; //
+int numberOfSongs = 1; //
+int numberOfSoundEffects = 1; //
+AudioPlayer[] playList = new AudioPlayer[ numberOfSongs ];
+AudioPlayer[] soundEffects = new AudioPlayer[ numberOfSoundEffects];
+int currentSong = numberOfSongs - numberOfSongs; //ZERO, Math Property
+//
+//Display
+size(700, 500); //width //height
+//fullScreen(); //displayWidth //displayHeight
+int appWidth = width; //
+int appHeight = height;
+//
+//Music Loading - STRUCTURED Review
+minim = new Minim(this); //Manditory
+String upArrow = "../../../";
+String musicFolder = "Music/"; //Developer Specific
+String soundEffectsFolder = "Sound Effects/"; //Developer Specific
+String songName1 = "001.mp3";
+String soundEffect1 = "camera-shutter-clicks-3...";
+String fileExtension_mp3 = ".mp3";
+//
+String musicDirectory = upArrow + musicFolder; //Concatenation
+String soundEffectsDirectory = upArrow + musicFolder + soundEffectsFolder; //Concatenation
+String file = musicDirectory + songName1 + fileExtension_mp3; //
+playList[ currentSong ] = minim.loadFile( file ); //
+file = soundEffectsDirectory + soundEffect1 + fileExtension_mp3; //Rewritting FILE
+soundEffects[currentSong] = minim.loadFile( file ); //
